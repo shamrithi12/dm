@@ -1,0 +1,22 @@
+#Install Package 
+install.packages("dplyr") 
+#Loading Package 
+library(dplyr) 
+#Transposed Version of Print 
+glimpse(mtcars) 
+# Display First N Rows 
+head(mtcars) 
+#Summary of All Records 
+summary(mtcars) 
+#Used to Pick Specific Variables 
+select(mtcars,mpg:disp) 
+select(mtcars,mpg:disp,-cyl) 
+mtcars%>%select(wt,mpg,disp) 
+#Mutate() – Adds New Variables While Retaining Old Variables To A Data Frame 
+mtcars%>%mutate(nv=wt+mpg) 
+#Filter Is Subset Of Dataframe 
+mtcars%>%filter(hp>123) 
+mtcars%>%filter(hp>123)%>%group_by (am) 
+mtcars%>%filter(hp>123)%>%group_by (am)%>%summarize(avg_wt=mean(wt)) 
+mtcars%>%filter(hp>123)%>%arrange(mpg) 
+mtcars%>%filter(hp>123)%>%arrange(desc(mpg))

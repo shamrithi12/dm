@@ -1,0 +1,54 @@
+# Read the dataset 
+mr <- read.csv("C:/Users/TEMP.KCW.004/Downloads/hepatitis.csv") 
+# Select columns from the dataset 
+a <- mr$class 
+b <- mr$age 
+c <- mr$sex 
+d <- mr$steroid 
+e <- mr$antiviral 
+f <- mr$fatigue 
+g <- mr$malaise 
+ 
+ 
+h <- mr$anorexia 
+i <- mr$liver_big 
+j <- mr$liver_firm 
+k <- mr$spleen_palable 
+l <- mr$spiders 
+m <- mr$ascites 
+n <- mr$varices 
+o <- mr$bilirubin 
+p <- mr$alk_phosphate 
+q <- mr$sgot 
+r <- mr$albumin 
+s <- mr$protime 
+t <- mr$histology 
+# Convert target variable into factor 
+a <- as.factor(a) 
+# Install package (Run only once) 
+install.packages("rpart.plot") 
+# Load required packages 
+library(rpart) 
+library(rpart.plot) 
+# Build classification tree 
+mymodel <- rpart( 
+  formula = a ~ b + c + d + e + f + g + h + 
+    i + j + k + l + m + n + 
+    o + p + q + r + s + t, 
+  method = "class", 
+  control = rpart.control(minsplit = 10) 
+) 
+# Plot the classification tree 
+rpart.plot(mymodel) 
+# Make predictions 
+pred <- predict(mymodel, type = "class") 
+ 
+ 
+ 
+ 
+# Create confusion matrix 
+mytable <- table(a, pred) 
+# Display confusion matrix 
+mytable 
+# Calculate percentage 
+prop.table(mytable) * 

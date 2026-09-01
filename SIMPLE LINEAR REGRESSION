@@ -1,0 +1,30 @@
+# Import the dataset by selecting the CSV file 
+data=read.csv(file.choose()) 
+# Create the training dataset using odd-numbered rows 
+training=data[seq(1,nrow(data),2),] 
+ 
+ 
+ 
+# Create the verification dataset using even-numbered rows 
+verification=data[seq(2,nrow(data),2),] 
+# Extract the weight values from the training dataset 
+weight=training[,3] 
+# Extract the height values from the training dataset 
+height=training[,2] 
+# Extract the weight values from the verification dataset 
+verification_weight=verification[,3] 
+# Extract the height values from the verification dataset 
+verification_height=verification[,2] 
+# Fit a simple linear regression model using weight as dependent variable and height as 
+independent variable 
+fit=lm(weight~height) 
+# Calculate the mean error between training weight and verification weight 
+mean(weight-verification_weight) 
+# Calculate the Root Mean Square Error (RMSE) 
+sqrt(sum((weight-verification_weight)^2)/length(weight)) 
+# Create a new data frame containing the height value for prediction 
+a=data.frame(height=170) 
+# Predict the weight using the fitted regression model 
+result<-predict(fit,a) 
+# Display the predicted result 
+print(result)

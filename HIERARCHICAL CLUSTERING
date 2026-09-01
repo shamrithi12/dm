@@ -1,0 +1,23 @@
+# Load the built-in dataset 
+A <- USArrests 
+# Find the distance matrix 
+distance <- dist(A, method = "euclidean") 
+ 
+ 
+ 
+# Fit the hierarchical clustering model 
+mymodel <- hclust(distance, method = "ward.D2") 
+# Display the distance matrix 
+distance 
+# Plot the dendrogram 
+plot(mymodel) 
+# Cut the tree into 3 clusters 
+groups <- cutree(mymodel, k = 3) 
+# Draw rectangles around the clusters 
+rect.hclust(mymodel, k = 3, border = "blue") 
+# Combine the original data with cluster labels 
+output <- cbind(A, groups) 
+# Write the output into a CSV file 
+write.csv(output, "D:/DM/output.csv") 
+# Compute the mean of each variable for each cluster 
+aggregate(A, by = list(groups), FUN = mean)

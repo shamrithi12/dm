@@ -1,0 +1,57 @@
+# Install the required packages 
+install.packages("ggfortify") 
+# Install the tseries package 
+install.packages("tseries")
+# Install the forecast package 
+install.packages("forecast") 
+# Load the ggfortify package 
+library(ggfortify) 
+# Load the tseries package 
+library(tseries) 
+# Load the forecast package 
+library(forecast) 
+# Load the AirPassengers dataset 
+data("AirPassengers") 
+# Assign the dataset to AP 
+AP <- AirPassengers 
+# Display the class of AP 
+class(AP) 
+ 
+# Display the structure of AP 
+str(AP) 
+# Check for missing values 
+sum(is.na(AP)) 
+# Display the frequency of the time series 
+frequency(AP) 
+# Plot the Air Passenger data 
+plot(AP, 
+xlab = "Year", 
+ylab = "Passengers numbers 
+(1000's)", main = "Air Passenger 
+Data") 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+# Create an automatic plot of the Air Passenger data 
+autoplot(AP
+) + 
+xlab("Year
+") + 
+ylab("Passenger numbers (1000's)") + 
+ggtitle("Air Passenger Data") 
+# Create a boxplot of passenger numbers by year 
+boxplot(AP ~ cycle(AP), 
+xlab = "Year", 
+ylab = "Passenger Numbers (1000's)", 
+main = "Air Passenger Numbers by 
+Year") 
+# Decompose the time series using the multiplicative method 
+decomposeAP <- decompose(AP, 
+"multiplicative")  
+# Display the decomposed time series 
+autoplot(decomposeAP)

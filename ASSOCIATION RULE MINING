@@ -1,0 +1,55 @@
+# Install required packages 
+install.packages("arules") 
+# Load the datasets package 
+library(datasets) 
+# Convert Titanic dataset into a data frame 
+df <- as.data.frame(Titanic) 
+# Display the dataset 
+df 
+# Display the structure of the dataset 
+str(df) 
+# Display the summary of the dataset 
+summary(df) 
+# Create an empty dataset 
+Titanic.raw <- NULL 
+# Expand the Titanic dataset based on frequency values 
+for(i in 1:4) 
+{ 
+  Titanic.raw <- cbind( 
+    Titanic.raw, 
+    rep(as.character(df[, i]), df$Freq) 
+  ) 
+} 
+# Convert the expanded dataset into a data frame 
+Titanic.raw <- as.data.frame(Titanic.raw) 
+# Assign column names 
+names(Titanic.raw) <- names(df)[1:4] 
+# Load the arules package 
+library(arules) 
+# Generate all association rules using Apriori 
+rules.all <- apriori(Titanic.raw) 
+# Display all generated rules 
+inspect(rules.all) 
+ 
+ 
+ 
+# Generate rules with minimum support and confidence 
+rules <- apriori( 
+  Titanic.raw, 
+  control = list(verbose = FALSE), 
+  parameter = list( 
+    minlen = 2, 
+    supp = 0.05, 
+    conf = 0.8 
+  ), 
+  appearance = list( 
+    rhs = c("Survived=No", "Survived=Yes"), 
+    default = "lhs" 
+  ) 
+) 
+# Round the quality measures 
+quality(rules) <- round(quality(rules), digits = 3) 
+# Sort rules based on support 
+rules.sorted <- sort(rules, by = "support") 
+# Display the sorted association rules 
+inspect(rules.sorted)

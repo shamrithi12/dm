@@ -1,0 +1,54 @@
+# Installing the packages 
+install.packages("tm") 
+install.packages("wordcloud") 
+install.packages("SnowballC") 
+install.packages("RColorBrewer") 
+# Loading the required libraries 
+library("tm") 
+library("SnowballC") 
+library("wordcloud") 
+library("RColorBrewer") 
+# Reading the text file 
+filePath <- "http://www.sthda.com/sthda/RDoc/example-files/martin-luther-king-i-have-a
+dream-speech.txt" 
+text <- readLines(filePath) 
+# Creating a corpus from the text 
+docs <- Corpus(VectorSource(text)) 
+# Inspecting the text file 
+inspect(docs) 
+# Converting text to lowercase 
+docs <- tm_map(docs, content_transformer(tolower)) 
+# Removing numbers 
+docs <- tm_map(docs, removeNumbers) 
+# Removing English stop words 
+docs <- tm_map(docs, removeWords, stopwords("english")) 
+# Removing unwanted words 
+docs <- tm_map(docs, removeWords, c("blabla1", "blabla2")) 
+# Removing punctuation 
+docs <- tm_map(docs, removePunctuation) 
+# Removing extra white spaces 
+docs <- tm_map(docs, stripWhitespace) 
+# Performing word stemming 
+docs <- tm_map(docs, stemDocument) 
+# Creating a Term-Document Matrix 
+dtm <- TermDocumentMatrix(docs) 
+# Converting the matrix 
+m <- as.matrix(dtm) 
+# Calculating and sorting word frequencies 
+v <- sort(rowSums(m), decreasing = TRUE) 
+# Creating a data frame with words and their frequencies 
+d <- data.frame(word = names(v), freq = v) 
+# Displaying the top 10 frequent words 
+head(d, 10) 
+# Setting seed for reproducibility 
+set.seed(1234) 
+# Generating the Word Cloud 
+wordcloud( 
+words = d$word, 
+freq = d$freq, 
+min.freq = 1, 
+max.words = 200, 
+random.order = FALSE, 
+rot.per = 0.35, 
+colors = brewer.pal(8, "Dark2")
+)

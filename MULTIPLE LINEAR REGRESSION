@@ -1,0 +1,57 @@
+# Install required packages 
+install.packages("mlbench") 
+install.packages("dplyr") 
+install.packages("ggplot2") 
+install.packages("reshape2") 
+install.packages("caTools") 
+ 
+ 
+ 
+ 
+ 
+# Load required packages 
+library(mlbench) 
+library(dplyr) 
+library(ggplot2) 
+library(reshape2) 
+library(caTools) 
+# Read CSV file 
+dat <- read.csv("C:/Users/1MSCDA08/Downloads/Boston.csv") 
+# Display data 
+print(dat) 
+# Display structure of data 
+str(dat) 
+# Split data into training and testing data 
+split <- sample.split(dat$medv, SplitRatio = 0.70) 
+# Create training data 
+train <- subset(dat, split == TRUE) 
+# Create testing data 
+test <- subset(dat, split == FALSE) 
+# Create Multiple Linear Regression model 
+model <- lm(medv ~ crim + rm + tax + lstat, data = train) 
+# Display model summary 
+summary(model) 
+# Predict house prices 
+y <- predict(model, newdata = test) 
+# Display predicted values 
+head(y) 
+# Calculate prediction error 
+error <- test$medv - y 
+# Calculate Mean Squared Error 
+mse <- mean(error^2) 
+# Display Mean Squared Error 
+mse 
+# Calculate Root Mean Square Error 
+rmse <- sqrt(mean(error^2)) 
+ 
+ 
+ 
+# Display RMSE 
+rmse 
+# Plot actual and predicted values 
+ggplot(data = test, aes(x = medv, y = y)) + 
+  geom_point(alpha = 0.5) + 
+  stat_smooth(color = "black") + 
+  xlab("Actual Value of MEDV") + 
+  ylab("Predicted Value of MEDV") + 
+  theme_bw()

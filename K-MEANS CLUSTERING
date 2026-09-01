@@ -1,0 +1,22 @@
+# Read the Seeds dataset from the CSV file 
+seeds <- read.csv("C:/Users/TEMP.KCW.039/Downloads/seeds-seeds.csv" 
+# Apply K-Means clustering with 3 clusters 
+model <- kmeans(seeds, 3) 
+# Display the clustering model 
+model 
+# Display the total sum of squares 
+model$totss 
+# Display the size of each cluster 
+model$size 
+# Display the cluster centroids 
+model$centers 
+# Display the between-cluster sum of squares 
+model$betweenss 
+# Retrieve the cluster labels 
+cluster <- model$cluster 
+# Display the cluster labels 
+cluster 
+# Combine the dataset with cluster labels 
+output <- cbind(seeds, cluster) 
+# Display the final clustered dataset 
+Output

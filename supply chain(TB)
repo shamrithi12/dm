@@ -1,0 +1,142 @@
+1. Total Revenue
+
+Calculated Field → Total Revenue
+
+SUM([Revenue generated])
+2. Total Products Sold
+
+Name: Total Products Sold
+
+SUM([Number of products sold])
+3. Total Production Volume
+
+Name: Total Production Volume
+
+SUM([Production volumes])
+4. Total Order Quantity
+
+Name: Total Order Quantity
+
+SUM([Order quantities])
+5. Average Manufacturing Cost
+
+Name: Average Manufacturing Cost
+
+AVG([Manufacturing costs])
+6. Average Shipping Cost
+
+Name: Average Shipping Cost
+
+AVG([Shipping costs])
+7. Average Defect Rate
+
+Name: Average Defect Rate
+
+AVG([Defect rates])
+8. Average Manufacturing Lead Time
+
+Name: Average Manufacturing Lead Time
+
+AVG([Manufacturing lead time])
+9. Average Shipping Time
+
+Name: Average Shipping Time
+
+AVG([Shipping times])
+10. Profit Estimate
+
+You can compare revenue against manufacturing and shipping costs.
+
+Name: Estimated Profit
+
+SUM([Revenue generated]) 
+- SUM([Manufacturing costs] * [Production volumes])
+- SUM([Shipping costs] * [Number of products sold])
+Best Tableau comparisons
+1. Revenue by Product Type
+
+Bar Chart
+
+Rows → Product type
+Columns → Total Revenue
+
+This compares revenue from haircare, skincare, and cosmetics.
+
+2. Revenue by Supplier
+
+Bar Chart
+
+Rows → Supplier name
+Columns → Total Revenue
+
+Sort descending.
+
+3. Production Volume by Product Type
+
+Bar Chart
+
+Rows → Product type
+Columns → Total Production Volume
+
+Formula:
+
+SUM([Production volumes])
+4. Defect Rate by Product Type
+
+Bar Chart
+
+Rows → Product type
+Columns → Average Defect Rate
+
+Formula:
+
+AVG([Defect rates])
+
+This compares product quality.
+
+5. Shipping Cost by Transportation Mode
+
+Bar Chart
+
+Rows → Transportation modes
+Columns → Average Shipping Cost
+
+Formula:
+
+AVG([Shipping costs])
+6. Shipping Time by Carrier
+
+Bar Chart
+
+Rows → Shipping carriers
+Columns → Average Shipping Time
+
+Formula:
+
+AVG([Shipping times])
+7. Revenue by Location
+
+Map or Bar Chart
+
+Location → Rows
+Total Revenue → Columns
+
+This compares revenue across locations.
+
+8. Supplier vs Product Type
+
+Use a Highlight Table:
+
+Rows → Supplier name
+Columns → Product type
+Color → Total Revenue
+
+This gives a good comparison between suppliers and product categories.
+
+9. Manufacturing Lead Time vs Shipping Time
+
+Use a Scatter Plot:
+
+Columns → Manufacturing lead time
+Rows → Shipping times
+Detail → Supplier name

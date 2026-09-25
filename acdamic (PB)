@@ -1,0 +1,11 @@
+Average Academic Performance = 
+DIVIDE(
+    AVERAGE('student_academic_performance'[Math Score]) +
+    AVERAGE('student_academic_performance'[Reading Score]) +
+    AVERAGE('student_academic_performance'[Writing Score]),
+    3
+)
+
+
+Total Students = 
+DISTINCTCOUNT('student_academic_performance'[Student ID])

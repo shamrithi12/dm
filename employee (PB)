@@ -1,0 +1,12 @@
+
+coloumn 
+
+Hire Year = 
+YEAR(Employees[HireDate])
+
+
+increase or decrease = DISTINCTCOUNT(Employees[Hire Year])
+
+
+Average Salary = 
+AVERAGE(Employees[Salary])

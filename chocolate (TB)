@@ -1,0 +1,109 @@
+
+Total Boxes Shipped
+
+Calculated Field name: Total Boxes Shipped
+
+SUM([Boxes Shipped])
+
+Number of Sales
+
+Calculated Field name: Number of Sales
+
+COUNT([Amount])
+
+
+Average Sales
+
+Calculated Field name: Average Sales
+
+AVG([Amount])
+5. Average Boxes Shipped
+
+Calculated Field name: Average Boxes Shipped
+
+AVG([Boxes Shipped])
+6. Sales per Box
+
+This is useful for comparing how much sales value is generated per box.
+
+Calculated Field name: Sales per Box
+
+SUM([Amount]) / SUM([Boxes Shipped])
+Best comparisons for your Chocolate Dashboard
+1. Sales by Country
+
+Chart: Bar Chart
+
+Rows → Country
+Columns → Total Sales
+
+Formula:
+
+SUM([Amount])
+2. Sales by Product
+
+Chart: Bar Chart
+
+Rows → Product
+Columns → Total Sales
+SUM([Amount])
+3. Sales Trend
+
+Chart: Line Chart
+
+Columns → Date
+Rows → Total Sales
+SUM([Amount])
+
+Change Date to Month or Year.
+
+4. Salesperson Comparison
+
+Chart: Bar Chart
+
+Rows → Sales Person
+Columns → Total Sales
+SUM([Amount])
+
+Sort descending to see the highest salespersons.
+
+5. Boxes Shipped by Country
+
+Chart: Bar Chart
+
+Rows → Country
+Columns → Total Boxes Shipped
+
+Formula:
+
+SUM([Boxes Shipped])
+6. Product vs Country
+
+Chart: Highlight Table
+
+Rows → Product
+Columns → Country
+Color → Total Sales
+
+Formula:
+
+SUM([Amount])
+
+This is a good comparison visual because you can see which products perform better in each country.
+
+Dashboard KPIs
+
+At the top of your Tableau dashboard, I recommend:
+
+Total Sales | Total Boxes Shipped | Number of Sales | Average Sales
+
+Use these calculated fields:
+
+Total Sales
+SUM([Amount])
+Total Boxes Shipped
+SUM([Boxes Shipped])
+Number of Sales
+COUNT([Amount])
+Average Sales
+AVG([Amount])

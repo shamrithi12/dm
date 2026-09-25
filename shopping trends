@@ -1,0 +1,131 @@
+1. Total Sales
+
+Calculated Field name: Total Sales
+
+SUM([Purchase Amount (USD)])
+2. Total Customers
+
+Name: Total Customers
+
+COUNTD([Customer ID])
+3. Average Purchase Amount
+
+Name: Average Purchase Amount
+
+AVG([Purchase Amount (USD)])
+4. Total Previous Purchases
+
+Name: Total Previous Purchases
+
+SUM([Previous Purchases])
+5. Average Review Rating
+
+Name: Average Review Rating
+
+AVG([Review Rating])
+6. Average Age
+
+Name: Average Age
+
+AVG([Age])
+7. Sales per Customer
+
+Name: Sales per Customer
+
+SUM([Purchase Amount (USD)]) / COUNTD([Customer ID])
+8. Discounted Sales
+
+If you want to compare customers who received discounts:
+
+Name: Discounted Sales
+
+IF [Discount Applied] = "Yes"
+THEN [Purchase Amount (USD)]
+END
+
+Then use:
+
+SUM([Discounted Sales])
+Best comparisons for this dataset
+1. Sales by Category
+
+Bar Chart
+
+Rows → Category
+Columns → Total Sales
+
+Formula:
+
+SUM([Purchase Amount (USD)])
+2. Sales by Gender
+
+Bar Chart
+
+Columns → Gender
+Rows → Total Sales
+
+This compares male and female purchase amounts.
+
+3. Sales by Season
+
+Bar Chart
+
+Columns → Season
+Rows → Total Sales
+4. Sales by Location
+
+Bar Chart
+
+Rows → Location
+Columns → Total Sales
+
+Sort descending.
+
+5. Purchase Amount by Age
+
+Scatter Plot
+
+Columns → Age
+Rows → Purchase Amount (USD)
+Detail → Customer ID
+
+This helps examine the relationship between age and purchase amount.
+
+6. Subscription Status Comparison
+
+Bar Chart
+
+Columns → Subscription Status
+Rows → Total Customers
+
+Formula:
+
+COUNTD([Customer ID])
+7. Payment Method Analysis
+
+Bar Chart
+
+Rows → Payment Method
+Columns → Total Sales
+8. Frequency of Purchases
+
+Bar Chart
+
+Rows → Frequency of Purchases
+Columns → Total Customers
+9. Review Rating by Category
+
+Bar Chart
+
+Rows → Category
+Columns → Average Review Rating
+
+Formula:
+
+AVG([Review Rating])
+10. Discount vs Sales
+
+Create a Bar Chart:
+
+Columns → Discount Applied
+Rows → Total Sales

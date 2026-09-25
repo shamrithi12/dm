@@ -1,0 +1,9 @@
+Total Employees = 
+DISTINCTCOUNT('AI_Impact_on_Jobs_2030 (1)'[Employee_ID])
+
+
+highest average salary = DISTINCTCOUNT('AI_Impact_on_Jobs_2030 (1)'[Average_Salary_USD])
+
+
+AI Workforce =
+DISTINCTCOUNT(AI_Impact_on_Jobs_2030[Employee_ID])

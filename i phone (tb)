@@ -1,0 +1,36 @@
+Average Selling Price
+
+SUM([Quantity] * [Price]) / SUM([Quantity])
+
+Total Sales
+
+SUM([Quantity] * [Price])
+
+Total Quantity
+
+SUM([Quantity])
+
+iPhone Model → Rows
+Total Sales → Columns
+
+Monthly Sales Comparison
+Sale Date → Columns
+Total Sales → Rows
+
+Country Comparison
+Country → Rows
+Total Sales → Columns
+
+Storage Comparison
+Storage → Columns
+Total Sales → Rows
+
+Payment Method Comparison
+Payment Method → Columns
+Total Sales → Rows
+
+Model + Storage Comparison
+iPhone Model → Rows
+Storage → Columns
+Total Sales → Color
+Total Sales → Label

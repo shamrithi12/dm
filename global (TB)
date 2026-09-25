@@ -1,0 +1,106 @@
+Total Sales
+
+Calculated Field: Total Sales
+
+SUM([Sales])
+2. Total Profit
+
+Calculated Field: Total Profit
+
+SUM([Profit])
+3. Total Quantity
+
+Calculated Field: Total Quantity
+
+SUM([Quantity])
+4. Total Orders
+
+Calculated Field: Total Orders
+
+COUNTD([Order ID])
+5. Average Sales
+
+Calculated Field: Average Sales
+
+AVG([Sales])
+6. Average Profit
+
+Calculated Field: Average Profit
+
+AVG([Profit])
+7. Profit Margin
+
+This is very useful for your dashboard.
+
+Calculated Field: Profit Margin
+
+SUM([Profit]) / SUM([Sales])
+
+Then format it as Percentage.
+
+8. Average Discount
+
+Calculated Field: Average Discount
+
+AVG([Discount])
+
+Format as percentage if required.
+
+Best Tableau comparisons
+1. Sales by Country
+
+Bar Chart
+
+Rows → Country
+Columns → Total Sales
+2. Profit by Category
+
+Bar Chart
+
+Rows → Category
+Columns → Total Profit
+3. Sales Trend
+
+Line Chart
+
+Columns → Order Date
+Rows → Total Sales
+
+Change Order Date to Year/Month.
+
+4. Category vs Sub-Category
+
+Bar Chart
+
+Rows → Sub-Category
+Columns → Total Sales
+Color → Category
+5. Sales vs Profit
+
+Scatter Plot
+
+Columns → Total Sales
+Rows → Total Profit
+Detail → Country
+
+This lets you compare sales and profit together.
+
+6. Market-wise Sales
+
+Bar Chart
+
+Rows → Market
+Columns → Total Sales
+7. Region-wise Profit
+
+Bar Chart
+
+Rows → Region
+Columns → Total Profit
+8. Discount vs Profit
+
+Scatter Plot
+
+Columns → Discount
+Rows → Profit
+Detail → Product Name
